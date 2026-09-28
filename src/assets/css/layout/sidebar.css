@@ -1,0 +1,644 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 17px 12px 14px;
+
+    color: #c9d2e6;
+
+    background:
+        radial-gradient(
+            circle at 115% 42%,
+            rgba(103, 84, 255, 0.20),
+            transparent 16rem
+        ),
+        linear-gradient(
+            180deg,
+            #091329 0%,
+            #0c1730 100%
+        );
+
+    border-right: 1px solid rgba(255, 255, 255, 0.035);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR SCROLL AREA
+   ========================================================= */
+
+/*
+   Your current Sidebar.jsx has:
+
+   <aside className="sidebar">
+       <div>
+           brand
+           nav
+           system
+       </div>
+
+       <div className="sidebar-bottom">
+           support
+           user
+       </div>
+   </aside>
+
+   So the first direct child becomes the scrollable area.
+*/
+
+.sidebar > div:first-child {
+    min-height: 0;
+    flex: 1;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-right: 5px;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(135, 151, 190, 0.35) transparent;
+}
+
+
+/* Chrome / Edge / Safari scrollbar */
+
+.sidebar > div:first-child::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar > div:first-child::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar > div:first-child::-webkit-scrollbar-thumb {
+    background: rgba(135, 151, 190, 0.30);
+    border-radius: 20px;
+}
+
+.sidebar > div:first-child::-webkit-scrollbar-thumb:hover {
+    background: rgba(135, 151, 190, 0.55);
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    min-height: 48px;
+
+    padding: 0 9px 24px;
+
+    user-select: none;
+}
+
+.brand-mark {
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #795cff 0%,
+            #5938ef 100%
+        );
+
+    box-shadow:
+        0 8px 22px rgba(98, 70, 255, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.brand:hover .brand-mark {
+    transform: translateY(-2px) rotate(-2deg);
+
+    box-shadow:
+        0 12px 28px rgba(98, 70, 255, 0.48),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.brand strong,
+.brand span {
+    display: block;
+
+    color: #ffffff;
+
+    line-height: 1.05;
+}
+
+.brand strong {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+}
+
+.brand span {
+    margin-top: 4px;
+
+    color: #8d9ab4;
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+   ========================================================= */
+
+.nav-section-label {
+    padding: 0 11px 9px;
+
+    color: #697995;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+    line-height: 1;
+}
+
+.system-label {
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+/* ---------- NAV ITEM ---------- */
+
+.nav-item {
+    position: relative;
+
+    width: 100%;
+    min-height: 43px;
+
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border: 0;
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #b6c0d4;
+
+    text-align: left;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.22s ease,
+        color 0.22s ease,
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+
+/* icon */
+
+.nav-item svg {
+    flex: 0 0 auto;
+
+    color: currentColor;
+
+    transition:
+        transform 0.22s ease,
+        color 0.22s ease;
+}
+
+
+/* text */
+
+.nav-item span {
+    min-width: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* arrow */
+
+.nav-item b {
+    margin-left: auto;
+
+    color: currentColor;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+
+    opacity: 0.9;
+
+    transition:
+        transform 0.22s ease;
+}
+
+
+/* ---------- HOVER ---------- */
+
+.nav-item:hover {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.025)
+        );
+
+    transform: translateX(2px);
+}
+
+.nav-item:hover svg {
+    transform: scale(1.08);
+}
+
+
+/* ---------- ACTIVE ---------- */
+
+.nav-item.active {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            100deg,
+            #6045fa 0%,
+            #795eff 100%
+        );
+
+    box-shadow:
+        0 8px 22px rgba(86, 64, 235, 0.30),
+        inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+.nav-item.active svg {
+    color: #ffffff;
+}
+
+.nav-item.active b {
+    transform: translateX(2px);
+}
+
+
+/* ---------- ACTIVE LEFT LIGHT ---------- */
+
+.nav-item.active::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+
+    width: 3px;
+
+    border-radius: 0 5px 5px 0;
+
+    background: rgba(255,255,255,0.9);
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,0.55);
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom {
+    flex: 0 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+
+    padding-top: 13px;
+
+    background: #0b1630;
+}
+
+
+/* =========================================================
+   SUPPORT CARD
+   ========================================================= */
+
+.support-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    min-height: 67px;
+
+    padding: 11px;
+
+    border: 1px solid rgba(132, 150, 190, 0.15);
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(44, 61, 102, 0.78),
+            rgba(25, 40, 73, 0.86)
+        );
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.support-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    right: -30px;
+    bottom: -35px;
+
+    border-radius: 50%;
+
+    background: rgba(110, 86, 255, 0.15);
+
+    pointer-events: none;
+}
+
+.support-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(126, 108, 255, 0.35);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.18);
+}
+
+
+/* support icon */
+
+.support-icon {
+    width: 33px;
+    height: 33px;
+
+    flex: 0 0 33px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7158ff,
+            #5438e8
+        );
+
+    box-shadow:
+        0 6px 14px rgba(93, 67, 241, 0.32);
+}
+
+
+/* support text */
+
+.support-copy {
+    min-width: 0;
+    flex: 1;
+}
+
+.support-copy strong,
+.support-copy span {
+    display: block;
+}
+
+.support-copy strong {
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.support-copy span {
+    margin-top: 3px;
+
+    color: #8d9ab3;
+
+    font-size: 8px;
+    line-height: 1.4;
+}
+
+
+/* support arrow */
+
+.support-arrow {
+    flex: 0 0 auto;
+
+    color: #cbd2e4;
+
+    font-size: 17px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.support-card:hover .support-arrow {
+    transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   SIDEBAR USER
+   ========================================================= */
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 13px 7px 0;
+
+    border-top: 1px solid rgba(146, 159, 188, 0.13);
+}
+
+.sidebar-avatar {
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8066ff,
+            #6044ed
+        );
+
+    font-size: 10px;
+    font-weight: 700;
+
+    box-shadow:
+        0 0 0 2px #172344,
+        0 6px 15px rgba(82, 60, 226, 0.25);
+}
+
+.sidebar-user-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.sidebar-user-info strong,
+.sidebar-user-info span {
+    display: block;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.sidebar-user-info strong {
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.sidebar-user-info span {
+    margin-top: 3px;
+
+    color: #8290aa;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   SIDEBAR SCROLL — EXTRA POLISH
+   ========================================================= */
+
+@media (min-width: 951px) {
+    .sidebar > div:first-child {
+        overscroll-behavior: contain;
+        scroll-behavior: smooth;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+    .sidebar {
+        width: 225px;
+    }
+
+    .brand {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .nav-item {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 950px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar *,
+    .sidebar *::before,
+    .sidebar *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
